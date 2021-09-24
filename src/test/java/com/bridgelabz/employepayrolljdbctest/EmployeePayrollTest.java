@@ -48,4 +48,17 @@ public class EmployeePayrollTest {
 		Integer res = employeePayrollService.retrieveDate();
 		Assert.assertEquals((Integer)4,res);
 	}
+	
+	@Test
+	public void ifData_FromDataBaseSumMinMaxCount_ShouldReturnSize() throws SQLException{
+		employeePayrollService = new EmployeePayrollService();
+		Integer res = employeePayrollService.sumData();
+		Assert.assertEquals((Integer)2,res);
+		res = employeePayrollService.minData();
+		Assert.assertEquals((Integer)2,res);
+		res = employeePayrollService.maxData();
+		Assert.assertEquals((Integer)2,res);
+		res = employeePayrollService.countData();
+		Assert.assertEquals((Integer)2,res);
+	}
 }
