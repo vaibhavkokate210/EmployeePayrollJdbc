@@ -16,7 +16,7 @@ public class EmployeePayrollTest {
 	
 	@Test
 	public void ifConnection_IsSuccessful_ShouldReturnTrue() {
-		employeePayrollJdbc = new EmployeePayrollJdbc();
+		employeePayrollJdbc = EmployeePayrollJdbc.getInstance();
 		Assert.assertTrue(employeePayrollJdbc.dbConnect()!=null);
 	}
 	
@@ -32,6 +32,13 @@ public class EmployeePayrollTest {
 	public void ifData_UpdatePerform_ShouldReturnTrue() throws SQLException{
 		employeePayrollService = new EmployeePayrollService();
 		int res = employeePayrollService.updateData("Terissa",3000000.00);
+		Assert.assertEquals(2,res);
+	}
+	
+	@Test
+	public void ifData_UpdatePerformUsingPrepared_ShouldReturnTrue() throws SQLException{
+		employeePayrollService = new EmployeePayrollService();
+		int res = employeePayrollService.updatePreparedData("Terissa",3000000.00);
 		Assert.assertEquals(2,res);
 	}
 }

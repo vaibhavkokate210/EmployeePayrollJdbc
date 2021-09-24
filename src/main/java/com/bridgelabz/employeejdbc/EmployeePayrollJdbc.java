@@ -6,12 +6,20 @@ import java.sql.DriverManager;
 import java.util.Enumeration;
 
 public class EmployeePayrollJdbc {
-Connection connection;
+	private static EmployeePayrollJdbc employeePayrollJdbc;
+	private EmployeePayrollJdbc() {}
+	
+	public static EmployeePayrollJdbc getInstance() {
+		if (employeePayrollJdbc==null)
+			employeePayrollJdbc = new EmployeePayrollJdbc();
+		return employeePayrollJdbc;
+	}
+	Connection connection;
 	
 	public Connection dbConnect() {
 		String jdbcURL = "jdbc:mysql://localhost:3306/payroll_service?useSSL=false";
 		String userName = "root";
-		String password = "root";
+		String password = "1234";
 		
 		
 		try {
@@ -30,4 +38,5 @@ Connection connection;
 		}
 		return connection;
 	}
+	
 }
