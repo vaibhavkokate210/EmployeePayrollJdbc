@@ -1,13 +1,12 @@
 package com.bridgelabz.employeejdbc;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.PreparedStatement;
 import java.time.LocalDate;
-import java.util.Date;
-
 public class EmployeePayrollService {
 	
 EmployeePayrollJdbc employeePayrollJdbc;
@@ -56,9 +55,10 @@ EmployeePayrollJdbc employeePayrollJdbc;
 	}
 	
 	public int retrieveDate() throws SQLException {
-		String query = String.format("Select * from employee where start between '%s' and '%s');", Date.parse("2018-01-01"),Date.parse("2021-12-30"));
+		Date dateStart = Date.valueOf("2018-01-01");
+		Date dateEnd = Date.valueOf("2021-12-30");
+		String query = String.format("Select * from employee where start between '%tF' and '%tF';",dateStart,dateEnd);
 		ResultSet queries = getQuerries(query);
 		return printSet(queries);
 	}
-	
 }

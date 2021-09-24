@@ -41,4 +41,11 @@ public class EmployeePayrollTest {
 		int res = employeePayrollService.updatePreparedData("Terissa",3000000.00);
 		Assert.assertEquals(2,res);
 	}
+	
+	@Test
+	public void ifData_FromDataBaseDate_ShouldReturnSize() throws SQLException{
+		employeePayrollService = new EmployeePayrollService();
+		Integer res = employeePayrollService.retrieveDate();
+		Assert.assertEquals((Integer)4,res);
+	}
 }
