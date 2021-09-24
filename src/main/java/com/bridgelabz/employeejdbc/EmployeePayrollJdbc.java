@@ -10,6 +10,41 @@ public class EmployeePayrollJdbc {
 	private EmployeePayrollJdbc() {}
 	
 	public static EmployeePayrollJdbc getInstance() {
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		if (employeePayrollJdbc==null)
 			employeePayrollJdbc = new EmployeePayrollJdbc();
 		return employeePayrollJdbc;
